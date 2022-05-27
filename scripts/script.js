@@ -117,6 +117,26 @@ function backspaceNum() {
     displayArrs();
 }
 
+function controlKey(e) {
+    console.log(e.key)
+    let num = parseInt(e.key, 10);
+    if(!Number.isNaN(num) || e.key === ".") {
+        addNumToDisplayArr({target:{textContent: e.key}})
+    }
+    if(e.key === "+" || e.key === "-" || e.key === "/" || e.key === "*"){
+        addOperator({target:{textContent: e.key}})
+    }
+    if(e.key === "Enter" || e.key === "=") {
+        calculate();
+    }
+    if(e.key === "Backspace") {
+        backspaceNum()
+    }
+    if(e.key === "c") {
+        clearNum()
+    }
+}
+
 const numbers = document.querySelectorAll(".number");
 numbers.forEach(number => {
     number.addEventListener("click", addNumToDisplayArr)
@@ -135,3 +155,5 @@ clear.addEventListener("click", clearNum)
 
 const backspace = document.querySelector(".backspace");
 backspace.addEventListener("click", backspaceNum)
+
+window.addEventListener("keydown", controlKey)
