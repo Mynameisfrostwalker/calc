@@ -27,6 +27,13 @@ function operate(num1, num2, operator) {
     } else if(operator === "*") {
        return multiplyNumbers(num1, num2)
     } else if(operator === "/") {
+        if(num2 === 0) {
+            mainDisplayArr = [];
+            smallerDisplayArr = [];
+            smallDisplay.textContent = "";
+            mainDisplay.textContent = "Wish I Knew";
+            return;
+        }
        return divideNumbers(num1, num2)
     }
 }
@@ -68,9 +75,11 @@ function addOperator(e) {
         mainDisplayArr = [];
         smallDisplayArr = Number.isInteger(result) ? [result, operator] : [result.toFixed(2), operator];
     } else if(mainDisplayArr[0] !== undefined){
-        smallDisplayArr.push(mainDisplayArr[0])
-        smallDisplayArr.push(operator)
-        mainDisplayArr.pop()
+        if(mainDisplayArr[0] !== "+" && mainDisplayArr[0] !== "-") {
+            smallDisplayArr.push(mainDisplayArr[0])
+            smallDisplayArr.push(operator)
+            mainDisplayArr.pop()
+        }
     } else {
         if(operator === "+" || operator === "-"){
              mainDisplayArr.push(operator)
