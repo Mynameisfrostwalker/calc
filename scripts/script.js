@@ -85,6 +85,12 @@ function calculate() {
     }
 }
 
+function clearNum() {
+    mainDisplayArr = [];
+    smallDisplayArr = [];
+    displayArrs();
+}
+
 const numbers = document.querySelectorAll(".number");
 numbers.forEach(number => {
     number.addEventListener("click", addNumToDisplayArr)
@@ -97,3 +103,6 @@ operators.forEach(operator => {
 
 const equal = document.querySelector(".equals");
 equal.addEventListener("click", calculate)
+
+const clear = document.querySelector(".clear");
+clear.addEventListener("click", clearNum)
