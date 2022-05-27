@@ -1,0 +1,69 @@
+@font-face {
+    font-family: calculate;
+    src: url(../assets/digital_7.ttf);
+}
+
+body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #fff8e7;
+    font-family: calculate, Arial, "Times New Roman", Times, serif;
+    padding: 1rem;
+}
+
+.calculator {
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    min-width: 40vw;
+    min-height: 80vh;
+    padding: 10px;
+    background-color: black;
+    box-shadow: 0px 0px 10px 6px grey;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    flex: 1 1 auto;
+    background-color: dimgrey;
+    color: white;
+}
+
+.display > div {
+    text-align: right;
+}
+
+.pad {
+    flex: 3 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: lightgrey;
+}
+
+.pad > div {
+    width: 25%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.pad > .backspace {
+    width: 75%;
+}
+
+.smallDisplay {
+    flex: 1 1 auto;
+    font-size: 2rem;
+}
+
+.mainDisplay {
+    flex: 5 1 auto;
+    font-size: 3rem;
+}

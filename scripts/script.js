@@ -25,3 +25,4 @@ function operate(num1, num2, operator) {
        return divideNumbers(num1, num2)
     }
 }
+
