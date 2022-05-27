@@ -103,6 +103,20 @@ function clearNum() {
     displayArrs();
 }
 
+function backspaceNum() {
+    if(mainDisplayArr.length > 0) {
+        mainDisplayArr[0] = `${mainDisplayArr[0]}`
+        mainDisplayArr[0] = mainDisplayArr[0].slice(0, -1);
+    }else {
+        mainDisplayArr.push(smallDisplayArr[0]);
+        smallDisplayArr = [];
+    }
+    if(mainDisplayArr[0].length === 0){
+        mainDisplayArr = [];
+    }
+    displayArrs();
+}
+
 const numbers = document.querySelectorAll(".number");
 numbers.forEach(number => {
     number.addEventListener("click", addNumToDisplayArr)
@@ -118,3 +132,6 @@ equal.addEventListener("click", calculate)
 
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", clearNum)
+
+const backspace = document.querySelector(".backspace");
+backspace.addEventListener("click", backspaceNum)
