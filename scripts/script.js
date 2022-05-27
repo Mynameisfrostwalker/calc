@@ -63,7 +63,7 @@ function addOperator(e) {
     } else if(smallDisplayArr[0] !== undefined) {
         const result = operate(parseFloat(smallDisplayArr[0]), parseFloat(mainDisplayArr[0]), smallDisplayArr[1]);
         mainDisplayArr = [];
-        smallDisplayArr = [result.toFixed(2), operator];
+        smallDisplayArr = Number.isInteger(result) ? [result, operator] : [result.toFixed(2), operator];
     } else if(mainDisplayArr[0] !== undefined){
         smallDisplayArr.push(mainDisplayArr[0])
         smallDisplayArr.push(operator)
@@ -79,7 +79,7 @@ function addOperator(e) {
 function calculate() {
     if(smallDisplayArr[0] && mainDisplayArr[0]) {
         const result = operate(parseFloat(smallDisplayArr[0]), parseFloat(mainDisplayArr[0]), smallDisplayArr[1]);
-        mainDisplayArr = [result.toFixed(2)];
+        mainDisplayArr = Number.isInteger(result) ? [result] : [result.toFixed(2)];
         smallDisplayArr = [];
         displayArrs()
     }
