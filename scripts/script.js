@@ -33,6 +33,9 @@ function operate(num1, num2, operator) {
 
 function addNumToDisplayArr (e) {
     const num = e.target.textContent;
+    if(num === "." && !Number.isInteger(Number(mainDisplayArr[0]))) {
+        return;
+    }
     if(mainDisplayArr[0] !== undefined){
         mainDisplayArr[0] += num;
     } else {
